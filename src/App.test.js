@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders the player statistics dashboard', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 1, name: /игроки/i })).toBeInTheDocument();
+  expect(screen.getByRole('row', { name: /marlow/i })).toBeInTheDocument();
+  expect(screen.getByLabelText('Поиск игрока')).toBeInTheDocument();
 });
