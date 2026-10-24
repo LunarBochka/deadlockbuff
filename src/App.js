@@ -32,9 +32,6 @@ function App() {
           <PlayersSection />
 
           <footer className="page-footer">
-            <span>© 2026 DEADLOCK BUFF</span>
-            <span>НЕОФИЦИАЛЬНЫЙ ФАН-САЙТ</span>
-            <span>Данные для примера</span>
           </footer>
         </div>
       </main>
