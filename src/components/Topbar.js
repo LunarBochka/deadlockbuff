@@ -1,14 +1,17 @@
 import './Topbar.css';
 
-function Topbar({ activeNav }) {
+function Topbar() {
   return (
-    <header className="topbar">
-      <div className="breadcrumbs"><span>DEADLOCK</span><b>/</b><strong>{activeNav.toUpperCase()}</strong></div>
-      <div className="topbar-actions">
-        <span className="updated-label"><span className="live-dot" /> Данные обновлены</span>
-        <button className="icon-button notification-button" type="button" aria-label="Уведомления">♧<i /></button>
-        <button className="sign-in-button" type="button">Войти <span>↗</span></button>
+    <header className="topbar" aria-label="Верхняя панель">
+      <div className="topbar-links" aria-hidden="true">
+        <span className="topbar-link-placeholder" />
+        <span className="topbar-link-placeholder" />
+        <span className="topbar-link-placeholder" />
       </div>
+      <label className="player-search">
+        <span className="player-search-icon" aria-hidden="true">⌕</span>
+        <input aria-label="Поиск игрока по ID" placeholder="Поиск игрока по ID" type="search" />
+      </label>
     </header>
   );
 }
