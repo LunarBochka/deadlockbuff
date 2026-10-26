@@ -10,32 +10,197 @@
   background: #141715;
 }
 
-.brand { display: flex; align-items: center; gap: 12px; width: fit-content; color: var(--text); text-decoration: none; }
-.brand-mark { display: grid; width: 40px; height: 40px; place-items: center; background: var(--accent); color: #161a12; font-family: 'Barlow Condensed', sans-serif; font-size: 29px; font-weight: 800; transform: skew(-7deg); }
-.brand-name { font-size: 20px; font-weight: 750; letter-spacing: .1px; }
-.brand-name span { color: var(--accent); }
-.sidebar-label { margin: 48px 0 10px 10px; color: #626a63; font-size: 9px; font-weight: 700; letter-spacing: 1.4px; }
-.game-switcher { display: flex; align-items: center; gap: 10px; min-height: 58px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 5px; background: #1a1e1b; color: var(--text); text-align: left; }
-.game-emblem { display: grid; width: 34px; height: 34px; place-items: center; background: #333e25; color: var(--accent); font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 700; }
-.game-copy { display: grid; gap: 3px; }
-.game-copy strong { font-size: 12px; font-weight: 650; }
-.game-copy small { color: var(--muted); font-size: 10px; }
-.switch-chevron { margin-left: auto; color: #858c85; font-size: 16px; }
-.nav-label { margin-top: 36px; }
-.primary-nav { display: grid; gap: 4px; }
-.nav-item { display: flex; min-height: 40px; align-items: center; gap: 12px; padding: 0 11px; border: 0; border-radius: 4px; background: transparent; color: #9da39d; font-size: 12px; text-align: left; cursor: pointer; transition: background .18s ease, color .18s ease; }
-.nav-item:hover { background: #202521; color: var(--text); }
-.nav-item.is-active { background: #252b24; color: var(--accent); }
-.nav-icon { width: 16px; color: inherit; font-size: 16px; text-align: center; }
-.nav-count { margin-left: auto; color: #687067; font-size: 10px; }
-.sidebar-bottom { margin-top: auto; }
-.season-card { padding: 14px 13px 12px; border: 1px solid #323a2a; border-radius: 4px; background: linear-gradient(130deg, #20261b, #191d19 70%); }
-.season-topline { display: flex; align-items: center; gap: 7px; margin-bottom: 12px; color: var(--accent); font-size: 9px; font-weight: 750; letter-spacing: 1px; }
-.live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 9px #d5ff5480; }
-.season-card > strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 600; }
-.season-card > span { display: block; margin-top: 3px; color: #858c82; font-size: 9px; }
-.season-progress { height: 3px; margin-top: 13px; background: #343a30; }
-.season-progress i { display: block; width: 64%; height: 100%; background: var(--accent); }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  background: var(--accent);
+  color: #161a12;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 29px;
+  font-weight: 800;
+  transform: skew(-7deg);
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: .1px;
+}
+
+.brand-name span {
+  color: var(--accent);
+}
+
+.sidebar-label {
+  margin: 48px 0 10px 10px;
+  color: #626a63;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.game-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #1a1e1b;
+  color: var(--text);
+  text-align: left;
+}
+
+.game-emblem {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  background: #333e25;
+  color: var(--accent);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.game-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.game-copy strong {
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.game-copy small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.switch-chevron {
+  margin-left: auto;
+  color: #858c85;
+  font-size: 16px;
+}
+
+.nav-label {
+  margin-top: 36px;
+}
+
+.primary-nav {
+  display: grid;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #9da39d;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+
+.nav-item:hover {
+  background: #202521;
+  color: var(--text);
+}
+
+.nav-item.is-active {
+  background: #252b24;
+  color: var(--accent);
+}
+
+.nav-icon {
+  width: 16px;
+  color: inherit;
+  font-size: 16px;
+  text-align: center;
+}
+
+.nav-count {
+  margin-left: auto;
+  color: #687067;
+  font-size: 10px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.season-card {
+  padding: 14px 13px 12px;
+  border: 1px solid #323a2a;
+  border-radius: 4px;
+  background: linear-gradient(130deg, #20261b, #191d19 70%);
+}
+
+.season-topline {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 9px #d5ff5480;
+}
+
+.season-card>strong {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.season-card>span {
+  display: block;
+  margin-top: 3px;
+  color: #858c82;
+  font-size: 9px;
+}
+
+.season-progress {
+  height: 3px;
+  margin-top: 13px;
+  background: #343a30;
+}
+
+.season-progress i {
+  display: block;
+  width: 64%;
+  height: 100%;
+  background: var(--accent);
+}
+
 @media (max-width: 1100px) {
   .sidebar {
     width: 205px;
@@ -43,16 +208,60 @@
 }
 
 @media (max-width: 700px) {
-  .sidebar { position: sticky; top: 0; width: 100%; height: auto; min-height: 58px; flex-direction: row; align-items: center; justify-content: space-between; padding: 10px 16px; border-right: 0; border-bottom: 1px solid var(--line); }
-  .brand-mark { width: 34px; height: 34px; font-size: 25px; }
-  .sidebar-label, .game-switcher, .sidebar-bottom { display: none; }
-  .primary-nav { display: flex; gap: 3px; }
-  .nav-item { min-height: 35px; gap: 6px; padding: 0 8px; font-size: 10px; }
-  .nav-icon { width: auto; font-size: 14px; }
-  .nav-count { display: none; }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    min-height: 58px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    font-size: 25px;
+  }
+
+  .sidebar-label,
+  .game-switcher,
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .primary-nav {
+    display: flex;
+    gap: 3px;
+  }
+
+  .nav-item {
+    min-height: 35px;
+    gap: 6px;
+    padding: 0 8px;
+    font-size: 10px;
+  }
+
+  .nav-icon {
+    width: auto;
+    font-size: 14px;
+  }
+
+  .nav-count {
+    display: none;
+  }
 }
 
 @media (max-width: 390px) {
-  .brand-name { font-size: 17px; }
-  .nav-item { padding: 0 6px; }
+  .brand-name {
+    font-size: 17px;
+  }
+
+  .nav-item {
+    padding: 0 6px;
+  }
 }

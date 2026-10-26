@@ -20,10 +20,13 @@
 }
 
 .home-content {
-  display: grid;
+  display: flex;
   min-height: 0;
   flex: 1;
-  place-items: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
   padding: 32px;
 }
 
