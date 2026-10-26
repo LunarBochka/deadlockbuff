@@ -44,11 +44,6 @@ function Sidebar({ activeNav, onNavigate }) {
           <span>Обновлено 4 минуты назад</span>
           <div className="season-progress"><i /></div>
         </div>
-        <button className="profile-button" type="button">
-          <span className="profile-avatar">G</span>
-          <span className="profile-copy"><strong>Гость</strong><small>Базовый аккаунт</small></span>
-          <span className="profile-more">•••</span>
-        </button>
       </div>
     </aside>
   );

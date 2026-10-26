@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import PlayersSection from './components/PlayersSection';
 import Sidebar from './components/Sidebar';
-import StatsGrid from './components/StatsGrid';
 import Topbar from './components/Topbar';
+import PlayerCard from './components/Player';
 
 function App() {
   const [activeNav, setActiveNav] = useState('Игроки');
@@ -11,32 +10,15 @@ function App() {
   return (
     <div className="dashboard-shell">
       <Sidebar activeNav={activeNav} onNavigate={setActiveNav} />
-
       <main className="main-content">
-        <Topbar activeNav={activeNav} />
-
-        <div className="content-wrap">
-          <section className="page-heading" id="overview">
-            <div>
-              <div className="eyebrow"><span /> DEADLOCK / СООБЩЕСТВО</div>
-              <h1>Игроки<span>.</span></h1>
-              <p>Следи за лидерами. Сравнивай статистику. Играй лучше.</p>
-            </div>
-            <div className="heading-meta">
-              <span className="meta-label">РЕЙТИНГ ОБНОВЛЁН</span>
-              <strong>24 окт, 14:32 <span>↻</span></strong>
-            </div>
-          </section>
-
-          <StatsGrid />
-          <PlayersSection />
-
-          <footer className="page-footer">
-            <span>© 2026 DEADLOCK BUFF</span>
-            <span>НЕОФИЦИАЛЬНЫЙ ФАН-САЙТ</span>
-            <span>Данные для примера</span>
-          </footer>
-        </div>
+        <Topbar />
+        <section className="home-content" id="overview" aria-label="Главная">
+          <div className="home-brand" aria-label="Deadlock Buff">
+            <span className="home-brand-mark" aria-hidden="true">D</span>
+            <h1 className="home-brand-name">deadlock<span>buff</span></h1>
+          </div>
+          <PlayerCard />
+        </section>
       </main>
     </div>
   );
