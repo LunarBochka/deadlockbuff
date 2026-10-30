@@ -120,6 +120,106 @@
   font-size: 16px;
 }
 
+.player-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.player-metric-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--panel-raised);
+}
+
+.player-metric-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.player-metric-heading h3 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.player-metric-heading span {
+  flex: 0 0 auto;
+  padding: 4px 6px;
+  background: #292e24;
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.player-metric-main {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 16px 0;
+}
+
+.player-metric-main p {
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.player-metric-main strong {
+  display: block;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  text-overflow: ellipsis;
+}
+
+.player-metric-main > div:first-child strong {
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.player-percentiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.player-percentile {
+  min-width: 0;
+  padding: 7px 5px;
+  background: #121513;
+  text-align: center;
+}
+
+.player-percentile span,
+.player-percentile strong {
+  display: block;
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+  text-overflow: ellipsis;
+}
+
+.player-percentile span {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.player-percentile strong {
+  color: #dce2d8;
+  font-size: 11px;
+}
+
 .player-json {
   margin-top: 16px;
   border-top: 1px solid var(--line);
