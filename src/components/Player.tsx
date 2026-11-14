@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from 'react';
+/*import { useEffect, useState, type FormEvent } from 'react';
 import axios from 'axios';
 import './Player.css';
 
@@ -83,24 +83,10 @@ function translateMetrics(metrics: PlayerMetrics) {
 
 function PlayerCard({ accountId: initialAccountId = '' }: PlayerCardProps) {
 	const [accountId, setAccountId] = useState(String(initialAccountId));
-	const [requestedAccountId, setRequestedAccountId] = useState('');
 	const [requestVersion, setRequestVersion] = useState(0);
 	const [metrics, setMetrics] = useState<PlayerMetrics | null>(null);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
-		if (!requestedAccountId) {
-			setLoading(false);
-			return;
-		}
-
-		let cancelled = false;
-
-		setLoading(true);
-		setError(null);
-		setMetrics(null);
-
 		axios.get<PlayerMetrics>('https://api.deadlock-api.com/v1/analytics/player-stats/metrics', {
 			params: {
 				game_mode: 'normal',
@@ -126,62 +112,13 @@ function PlayerCard({ accountId: initialAccountId = '' }: PlayerCardProps) {
 		return () => { cancelled = true; };
 	}, [requestedAccountId, requestVersion]);
 
-	function handleSubmit(event: FormEvent<HTMLFormElement>) {
-		event.preventDefault();
-		const normalizedAccountId = accountId.trim();
-
-		if (!/^\d+$/.test(normalizedAccountId)) {
-			setError('Введите числовой Steam account ID.');
-			setMetrics(null);
-			return;
-		}
-
-		setError(null);
-		setRequestedAccountId(normalizedAccountId);
-		setRequestVersion((version) => version + 1);
-	}
-
 	const metricEntries = metrics
 		? Object.entries(metrics).filter(([, summary]) => summary && typeof summary === 'object')
 		: [];
 
 	return (
 		<section className="player-tool" aria-labelledby="player-tool-title">
-			<div className="player-tool-heading">
-				<div>
-					<p className="player-tool-kicker">DEADLOCK API</p>
-					<h2 id="player-tool-title">Данные игрока</h2>
-				</div>
-				<span className="player-tool-method">GET /analytics/player-stats/metrics</span>
-			</div>
 
-			<form className="player-form" onSubmit={handleSubmit}>
-				<label htmlFor="steam-account-id">Steam account ID</label>
-				<div className="player-form-controls">
-					<input
-						id="steam-account-id"
-						inputMode="numeric"
-						autoComplete="off"
-						placeholder="Например, 123456789"
-						value={accountId}
-						onChange={(event) => setAccountId(event.target.value)}
-					/>
-					<button type="submit" disabled={loading || !accountId.trim()}>
-						{loading && requestedAccountId ? 'Загрузка...' : 'Загрузить'}
-					</button>
-				</div>
-			</form>
-
-			{error && <p className="player-message player-error">Ошибка: {error}</p>}
-			{!requestedAccountId && !error && (
-				<p className="player-message">Введите ID игрока, чтобы запросить его данные.</p>
-			)}
-			{loading && requestedAccountId && (
-				<p className="player-message">Загружаю данные игрока...</p>
-			)}
-			{!loading && !error && requestedAccountId && metricEntries.length === 0 && (
-				<p className="player-message">Метрики не найдены.</p>
-			)}
 
 			{metricEntries.length > 0 && (
 				<div className="player-metrics" aria-label="Метрики игрока">
@@ -225,15 +162,11 @@ function PlayerCard({ accountId: initialAccountId = '' }: PlayerCardProps) {
 					})}
 				</div>
 			)}
-
-			{metrics !== null && (
-				<details className="player-json">
-					<summary>Полный ответ API · JSON</summary>
-					<pre>{JSON.stringify(translateMetrics(metrics), null, 2)}</pre>
-				</details>
-			)}
 		</section>
 	);
 }
 
 export default PlayerCard;
+
+*/
+export {}
