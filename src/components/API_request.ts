@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { RawApiResponse } from './types';
+import { RawApiProfile } from './API_types';
 
-function useMicrocard( accountId = '' ) {
-  const [players, setPlayers] = useState<RawApiResponse[]>([]);
+function useAPIprofile( accountId = '' ) {
+  const [players, setPlayers] = useState<RawApiProfile[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -44,4 +44,4 @@ function useMicrocard( accountId = '' ) {
   return { players, loading, error };
 }
 
-export default useMicrocard;
+export default useAPIprofile;

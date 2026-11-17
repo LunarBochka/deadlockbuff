@@ -1,24 +1,10 @@
-// Сюда будут приходить данные из поисковой строки
-/*import useMicrocard from "./API_request";
-import generateMicrocardsHTML from "./Card_draw";
-import toMicrocards from "./to_microcard";
-
-function Card_render(query: string) {
-  const { players } = useMicrocard(query);
-  const Micro = toMicrocards(players);
-  const result = generateMicrocardsHTML(Micro);
-  console.log(result);
-  return result
-}
-
-export default Card_render; */
-import useMicrocard from './API_request';
+import useAPIprofile from './API_request';
 import generateMicrocards from './Card_draw'; 
-import toMicrocards from './to_microcard';
+import toMicrocards from './API_work';
 type MicrocardProps = { accountId: string };
 
 function Microcard({ accountId }: MicrocardProps) {
-  const { players, loading, error } = useMicrocard(accountId);
+  const { players, loading, error } = useAPIprofile(accountId);
 
   if (loading) return <p>Загрузка...</p>;
   if (error) return <p>{error}</p>;

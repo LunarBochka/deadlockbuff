@@ -1,10 +1,10 @@
-import { RawApiResponse, microcard } from "./types";
+import { RawApiProfile, Profile } from "./API_types";
 
-function toMicrocards(raw: RawApiResponse[]): microcard[] {
+function toMicrocards(raw: RawApiProfile[]): Profile[] {
     return raw.map(toMicrocard);
 }
 
-function toMicrocard(raw: RawApiResponse): microcard {
+function toMicrocard(raw: RawApiProfile): Profile {
     return {
         account_id: raw.account_id,
         personaname: raw.personaname,
@@ -14,7 +14,5 @@ function toMicrocard(raw: RawApiResponse): microcard {
         profileurl: raw.profileurl,
     };
 }
-
-// Если нужно обработать массив
 
 export default toMicrocards;

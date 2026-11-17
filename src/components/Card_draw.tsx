@@ -1,17 +1,6 @@
-// ==========================================
-// 3. ФУНКЦИЯ ГЕНЕРАЦИИ HTML (ВМЕСТО ФАЙЛА)
-// ==========================================
+import type { Profile } from './API_types';
 
-/*
- * Эта функция берёт массив microcard и превращает его в HTML-строку.
- * Её можно вернуть пользователю через веб-сервер или просто вывести в консоль.
- *
- * @param cards - Массив отформатированных карточек
- * @returns Готовая HTML-строка (целая веб-страница)
-*/
-import type { microcard } from './types';
-
-function generateMicrocards(cards: microcard[]) {
+function generateMicrocards(cards: Profile[]) {
   return cards.map((card) => (
     <div className="card" key={card.account_id}>
       <img
