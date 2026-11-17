@@ -1,15 +1,18 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import './App.css';
-import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
-import PlayerCard from './components/Player';
+import Search from './components/Search';
+import Microcard from './components/card_render';
+import { useState } from 'react';
+
+
+
 
 function App() {
-  const [activeNav, setActiveNav] = useState('Игроки');
-
+  //const [activeNav, setActiveNav] = useState('Игроки');
+  const [accountId, setAccountId] = useState('');
   return (
     <div className="dashboard-shell">
-      <Sidebar activeNav={activeNav} onNavigate={setActiveNav} />
       <main className="main-content">
         <Topbar />
         <section className="home-content" id="overview" aria-label="Главная">
@@ -17,7 +20,11 @@ function App() {
             <span className="home-brand-mark" aria-hidden="true">D</span>
             <h1 className="home-brand-name">deadlock<span>buff</span></h1>
           </div>
-          <PlayerCard />
+      <Search
+        onSearch={setAccountId} // ✅ просто setState, никаких хуков
+        placeholder="Введите ID игрока"
+      />
+      {accountId && <Microcard accountId={accountId} />}
         </section>
       </main>
     </div>

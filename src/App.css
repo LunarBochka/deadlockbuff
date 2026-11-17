@@ -15,7 +15,6 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  margin-left: 246px;
   background: radial-gradient(ellipse at 86% 0%, #252b1d 0, #171a18 25%, #101211 58%);
 }
 
