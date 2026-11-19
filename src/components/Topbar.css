@@ -10,6 +10,34 @@
   backdrop-filter: blur(14px);
 }
 
+.topbar-home-logo {
+  display: grid;
+  width: 57px;
+  height: 57px;
+  flex: 0 0 57px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #171120;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  cursor: pointer;
+  transform: skew(-7deg);
+}
+
+.topbar-home-logo span {
+  transform: skew(7deg);
+}
+
+.topbar-home-logo:hover,
+.topbar-home-logo:focus-visible {
+  border-color: var(--accent-strong);
+  filter: brightness(1.08);
+  outline: none;
+}
+
 .topbar-links {
   display: flex;
   align-items: center;
@@ -102,6 +130,13 @@
     min-height: 93px;
     gap: 15px;
     padding: 0 24px;
+  }
+
+  .topbar-home-logo {
+    width: 51px;
+    height: 51px;
+    flex-basis: 51px;
+    font-size: 34px;
   }
 
   .topbar-links {

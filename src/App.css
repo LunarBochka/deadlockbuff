@@ -76,23 +76,6 @@
   padding: 32px;
 }
 
-.player-back {
-  align-self: flex-start;
-  padding: 10px 14px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--panel);
-  color: var(--text);
-  cursor: pointer;
-}
-
-.player-back:hover,
-.player-back:focus-visible {
-  border-color: var(--accent);
-  color: var(--accent);
-  outline: none;
-}
-
 .cards {
   width: min(100%, 900px);
   display: grid;

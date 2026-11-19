@@ -19,7 +19,7 @@ test('opens a separate player page and keeps the topbar', () => {
   fireEvent.keyDown(topbarSearch, { key: 'Enter' });
 
   expect(window.location.hash).toBe('#/player/12345');
-  expect(screen.getByRole('button', { name: '← На главную' })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'На главную' })).toBeInTheDocument();
   expect(screen.getByRole('banner')).toBeInTheDocument();
 });
 
@@ -30,4 +30,13 @@ test('opens the featured static player ID from the navbar', () => {
   fireEvent.click(screen.getByRole('button', { name: 'Открыть игрока 76561198360505563' }));
 
   expect(window.location.hash).toBe('#/player/76561198360505563');
+});
+
+test('the navbar logo returns to the home page', () => {
+  window.location.hash = '#/player/12345';
+  render(<App />);
+
+  fireEvent.click(screen.getByRole('button', { name: 'На главную' }));
+
+  expect(window.location.hash).toBe('#/');
 });
