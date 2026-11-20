@@ -2,10 +2,10 @@ import './App.css';
 import Topbar from './components/Topbar';
 import HomePage from './components/HomePage';
 import PlayerPage from './components/PlayerPage';
-import useHashRoute from './components/useHashRoute';
+import usePathRoute from './components/usePathRoute';
 
 function App() {
-  const { accountId, openPlayer, goHome } = useHashRoute();
+  const { accountId, openPlayer, goHome } = usePathRoute();
 
   return (
     <div className="dashboard-shell">
