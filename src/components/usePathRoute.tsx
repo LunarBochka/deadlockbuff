@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-//                          НАВИГАЦИЯ
+// ==========================================
+//              !!! НАВИГАЦИЯ !!!
+// ==========================================
 function getAccountIdFromPath() {
   const match = window.location.pathname.match(/^\/player\/([^/]+)\/?$/);
   if (!match) return '';
