@@ -5,8 +5,37 @@
   justify-content: space-between;
   gap: 30px;
   padding: 0 63px;
-  border-bottom: 1px solid #282c29;
-  background: #111412b8;
+  border-bottom: 1px solid rgba(183, 154, 223, .16);
+  background: rgba(16, 13, 24, .88);
+  backdrop-filter: blur(14px);
+}
+
+.topbar-home-logo {
+  display: grid;
+  width: 57px;
+  height: 57px;
+  flex: 0 0 57px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #171120;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  cursor: pointer;
+  transform: skew(-7deg);
+}
+
+.topbar-home-logo span {
+  transform: skew(7deg);
+}
+
+.topbar-home-logo:hover,
+.topbar-home-logo:focus-visible {
+  border-color: var(--accent-strong);
+  filter: brightness(1.08);
+  outline: none;
 }
 
 .topbar-links {
@@ -18,14 +47,38 @@
 .topbar-link-placeholder,
 .player-search {
   height: 57px;
-  border: 1px solid #303631;
+  border: 1px solid #47385e;
   border-radius: 6px;
-  background: #191d1a;
+  background: rgba(27, 23, 38, .94);
 }
 
 .topbar-link-placeholder {
   display: block;
   width: 168px;
+}
+
+.topbar-player-link {
+  padding: 0 12px;
+  border-color: #594873;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+}
+
+.topbar-player-link:hover,
+.topbar-player-link:focus-visible {
+  border-color: var(--accent);
+  background: rgba(38, 32, 52, 1);
+  outline: none;
+}
+
+.topbar-player-id {
+  display: block;
+  overflow: hidden;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .player-search {
@@ -34,7 +87,7 @@
   align-items: center;
   gap: 15px;
   padding: 0 16px;
-  color: #899187;
+  color: #a99ab7;
 }
 
 .player-search-icon {
@@ -54,7 +107,7 @@
 }
 
 .player-search input::placeholder {
-  color: #777e78;
+  color: #a99ab7;
   opacity: 1;
 }
 
@@ -77,6 +130,13 @@
     min-height: 93px;
     gap: 15px;
     padding: 0 24px;
+  }
+
+  .topbar-home-logo {
+    width: 51px;
+    height: 51px;
+    flex-basis: 51px;
+    font-size: 34px;
   }
 
   .topbar-links {

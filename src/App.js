@@ -1,26 +1,62 @@
-import { useState } from 'react';
 import './App.css';
-import Sidebar from './components/Sidebar';
+import {
+  BrowserRouter,
+  Outlet,
+  Route,
+  Routes,
+  useNavigate,
+  useOutletContext,
+  useParams,
+} from 'react-router-dom';
 import Topbar from './components/Topbar';
-import PlayerCard from './components/Player';
+import HomePage from './components/HomePage';
+import PlayerPage from './components/PlayerPage';
 
-function App() {
-  const [activeNav, setActiveNav] = useState('Игроки');
+function HomeRoute() {
+  const openPlayer = useOutletContext();
+
+  return <HomePage onSearch={openPlayer} />;
+}
+
+function PlayerRoute() {
+  const { accountId } = useParams();
+
+  return accountId ? <PlayerPage accountId={accountId} /> : null;
+}
+
+function AppLayout() {
+  const navigate = useNavigate();
+
+  const openPlayer = (query) => {
+    const trimmedQuery = query.trim();
+    if (!trimmedQuery) return;
+
+    navigate(`/player/${encodeURIComponent(trimmedQuery)}`);
+  };
+
+  const goHome = () => navigate('/');
 
   return (
     <div className="dashboard-shell">
-      <Sidebar activeNav={activeNav} onNavigate={setActiveNav} />
       <main className="main-content">
-        <Topbar />
-        <section className="home-content" id="overview" aria-label="Главная">
-          <div className="home-brand" aria-label="Deadlock Buff">
-            <span className="home-brand-mark" aria-hidden="true">D</span>
-            <h1 className="home-brand-name">deadlock<span>buff</span></h1>
-          </div>
-          <PlayerCard />
-        </section>
+        <Topbar onSearch={openPlayer} onHome={goHome} />
+        <Outlet context={openPlayer} />
       </main>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter >
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route index element={<HomeRoute />} />
+          <Route path="player/:accountId" element={<PlayerRoute />} />
+          <Route path="*" element={<HomeRoute />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
