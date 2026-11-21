@@ -1,4 +1,4 @@
-import { RawApiProfile, Profile } from "./API_types";
+import { RawApiProfile, Profile } from "../API_types";
 
 function toMicrocards(raw: RawApiProfile[]): Profile[] {
     return raw.map(toMicrocard);
