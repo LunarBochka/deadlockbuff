@@ -1,6 +1,6 @@
 import './Topbar.css';
 import { useState, type KeyboardEvent } from 'react';
-
+//жопа
 type TopbarProps = {
   onSearch: (query: string) => void;
   onHome: () => void;
