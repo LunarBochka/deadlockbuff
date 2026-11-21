@@ -1,5 +1,8 @@
 import './Topbar.css';
 import { useState, type KeyboardEvent } from 'react';
+import useTopbarmicroprofiles from './Topbar_magic';
+import TopbarPlayerLink from './Topbar_card';
+
 //жопа
 type TopbarProps = {
   onSearch: (query: string) => void;
@@ -8,13 +11,14 @@ type TopbarProps = {
 
 function Topbar({ onSearch, onHome }: TopbarProps) {
   const [value, setValue] = useState('');
-  const featuredAccountId = '76561198360505563';
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       onSearch(value);
     }
   };
+
+  const { bratva, loading, error, ids: IDs } = useTopbarmicroprofiles();
 
   return (
     <header className="topbar" aria-label="Верхняя панель">
@@ -27,18 +31,28 @@ function Topbar({ onSearch, onHome }: TopbarProps) {
       >
         <span aria-hidden="true">D</span>
       </button>
-      <div className="topbar-links">
-        <button
-          className="topbar-link-placeholder topbar-player-link"
-          type="button"
-          aria-label={`Открыть игрока ${featuredAccountId}`}
-          onClick={() => onSearch(featuredAccountId)}
-        >
-          <span className="topbar-player-id">{featuredAccountId}</span>
-        </button>
-        <span className="topbar-link-placeholder" />
-        <span className="topbar-link-placeholder" />
-      </div>
+      {loading && (
+        <div className="topbar-players">
+          {IDs.map((id) => (
+            <div key={id} className="topbar-player-link topbar-player-link--skeleton" />
+          ))}
+        </div>
+      )}
+
+      {error && <span className="topbar-error">⚠ {error}</span>}
+
+      {!loading && !error && (
+        <div className="topbar-players">
+          {bratva.map((player, i) => (
+            <TopbarPlayerLink
+              key={IDs[i]}
+              player={player}
+              accountId={IDs[i]}
+              onSearch={onSearch}
+            />
+          ))}
+        </div>
+      )}
       <label className="player-search">
         <span className="player-search-icon" aria-hidden="true">⌕</span>
         <input

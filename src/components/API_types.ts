@@ -25,3 +25,9 @@ export interface Profile {
     matches_played_last_30d: string | number;
     profileurl: string;
 }
+
+export interface Topbarprofile {
+    account_id: string | number;
+    personaname: string;
+    avatarfull: string;
+} 

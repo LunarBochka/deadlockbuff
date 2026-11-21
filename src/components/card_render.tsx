@@ -1,6 +1,6 @@
 import useAPIprofile from './API_request';
 import generateMicrocards from './Card_draw'; 
-import toMicrocards from './API_work';
+import toMicrocards from './API_workers/API_steaminfo';
 type MicrocardProps = { accountId: string };
 
 function Microcard({ accountId }: MicrocardProps) {
