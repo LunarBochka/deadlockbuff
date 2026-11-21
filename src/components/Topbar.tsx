@@ -3,6 +3,7 @@ import { useState, type KeyboardEvent } from 'react';
 import useTopbarmicroprofiles from './Topbar_magic';
 import TopbarPlayerLink from './Topbar_card';
 
+//жопа
 type TopbarProps = {
   onSearch: (query: string) => void;
   onHome: () => void;
