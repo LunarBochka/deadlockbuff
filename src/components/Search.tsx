@@ -1,7 +1,5 @@
 import { useState, type KeyboardEvent } from 'react';
-// ==========================================
-//             !!!! ПОИСК!!!!
-// ==========================================
+
 type SearchProps = {
   onSearch: (query: string) => void;
   placeholder?: string;
