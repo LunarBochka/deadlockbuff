@@ -7,10 +7,11 @@ function useTopbarmicroprofiles() {
     const accountId = IDs.join(',');
     const { players, loading, error } = useAPIprofile(accountId);
     const player = toTopbars(players);
-    console.log('after toTopbars:', toTopbars(players));
+
   const byId = new Map(
     player.map((p) => [String(p.account_id), p])
     );
+    
   const bratva = IDs.map((id) => byId.get(String(id)) ?? null)  
     return {bratva, loading, error, ids: IDs}
 }

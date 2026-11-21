@@ -1,8 +1,8 @@
 import { Topbarprofile } from "./API_types";
 
 type Props = {
-  player: Topbarprofile | null; // элемент из orderedPlayers
-  accountId: string;             // тот самый featuredAccountId
+  player: Topbarprofile | null; 
+  accountId: string;             
   onSearch: (id: string) => void;
 };
 
