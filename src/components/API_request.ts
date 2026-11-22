@@ -3,6 +3,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import { RawApiProfile } from './API_types';
 
+export const deadlockApi = axios.create({
+  baseURL: 'https://api.deadlock-api.com',
+});
+
 function useAPIprofile( accountId = '' ) {
   const [players, setPlayers] = useState<RawApiProfile[]>([]);
   const [loading, setLoading] = useState(false);
@@ -18,7 +22,7 @@ function useAPIprofile( accountId = '' ) {
     setLoading(true);
     setError(null);
 
-	axios.get('https://api.deadlock-api.com/v1/players/steam', {
+	deadlockApi.get('/v1/players/steam', {
 				params: {
 					account_ids: accountId,
 				},
