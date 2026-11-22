@@ -247,6 +247,249 @@
   overflow-wrap: anywhere;
 }
 
+.player-stats {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.player-rank-card,
+.player-stat-section {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(40, 32, 57, .92);
+}
+
+.player-rank-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 118px;
+  padding: 14px 18px;
+}
+
+.player-rank-avatar {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+}
+
+.player-rank-card h3,
+.player-section-heading h3 {
+  margin: 4px 0 0;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.player-rank-card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.player-section-label {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.player-stat-section {
+  padding: 18px;
+}
+
+.player-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.player-section-count {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.recent-form {
+  display: grid;
+  grid-template-columns: repeat(20, minmax(18px, 1fr));
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.recent-form-game {
+  display: grid;
+  min-width: 18px;
+  height: 34px;
+  place-items: center;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.recent-form-game.is-win,
+.match-result.is-win {
+  background: rgba(117, 174, 137, .18);
+  color: #9bd3ae;
+}
+
+.recent-form-game.is-loss,
+.match-result.is-loss {
+  background: rgba(184, 107, 128, .18);
+  color: #d99bad;
+}
+
+.recent-form-game.is-other {
+  background: #252033;
+  color: var(--muted);
+}
+
+.match-list,
+.relation-list,
+.hero-grid {
+  display: grid;
+  gap: 6px;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: 38px minmax(120px, 1fr) 92px 74px 86px;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 5px 8px;
+  background: rgba(16, 13, 24, .72);
+  border-radius: 4px;
+}
+
+.match-row img,
+.hero-stat img,
+.relation-row img {
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.hero-fallback {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 4px;
+  background: #47385e;
+  color: var(--accent-strong);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.match-hero,
+.hero-stat > div,
+.relation-row {
+  min-width: 0;
+}
+
+.match-hero strong,
+.match-hero span,
+.hero-stat strong,
+.hero-stat span,
+.relation-row strong,
+.relation-row span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.match-hero span,
+.hero-stat span,
+.relation-row span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.match-kda,
+.match-networth {
+  font-variant-numeric: tabular-nums;
+}
+
+.match-networth {
+  color: var(--accent-strong);
+  font-size: 12px;
+}
+
+.match-result {
+  padding: 7px 5px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.hero-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hero-stat {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 7px;
+  background: rgba(16, 13, 24, .72);
+  border-radius: 4px;
+}
+
+.hero-stat b {
+  color: var(--accent-strong);
+  text-align: right;
+  font-size: 14px;
+}
+
+.relation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.relation-row {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  align-items: center;
+  min-height: 46px;
+  padding: 5px 8px;
+  background: rgba(16, 13, 24, .72);
+  border-radius: 4px;
+}
+
+.relation-row img {
+  grid-row: 1 / 3;
+}
+
+.relation-row strong {
+  align-self: end;
+  font-size: 12px;
+}
+
+.relation-row span {
+  align-self: start;
+}
+
+.player-empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 @media (max-width: 700px) {
   .player-tool {
     padding: 18px 14px;
@@ -266,5 +509,22 @@
   .player-form input,
   .player-form button {
     width: 100%;
+  }
+
+  .recent-form {
+    grid-template-columns: repeat(10, minmax(18px, 1fr));
+  }
+
+  .match-row {
+    grid-template-columns: 38px minmax(90px, 1fr) 74px 70px;
+  }
+
+  .match-networth {
+    display: none;
+  }
+
+  .hero-grid,
+  .relation-grid {
+    grid-template-columns: 1fr;
   }
 }

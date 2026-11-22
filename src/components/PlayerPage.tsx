@@ -1,4 +1,5 @@
 import Microcard from './card_render';
+import './Player.css';
 
 type PlayerPageProps = {
   accountId: string;

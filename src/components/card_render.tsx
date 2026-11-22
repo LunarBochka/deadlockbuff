@@ -1,6 +1,7 @@
 import useAPIprofile from './API_request';
 import generateMicrocards from './Card_draw'; 
 import toMicrocards from './API_workers/API_steaminfo';
+import PlayerStatsPanel from './PlayerStatsPanel';
 type MicrocardProps = { accountId: string };
 
 function Microcard({ accountId }: MicrocardProps) {
@@ -10,6 +11,15 @@ function Microcard({ accountId }: MicrocardProps) {
   if (error) return <p>{error}</p>;
   if (players.length === 0) return null;
 
-  return <div className="cards">{generateMicrocards(toMicrocards(players))}</div>;
+  const cards = toMicrocards(players);
+
+  return (
+    <div className="cards">
+      {generateMicrocards(cards)}
+      {cards.map((card) => (
+        <PlayerStatsPanel key={card.account_id} accountId={String(card.account_id)} />
+      ))}
+    </div>
+  );
 }
 export default Microcard;
