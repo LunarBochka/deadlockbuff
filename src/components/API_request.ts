@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { RawApiProfile } from './API_types';
 
-export const deadlockApi = axios.create({
+export const deadlockApi = axios.create({      //Эказемляр axios 
   baseURL: 'https://api.deadlock-api.com',
 });
 
