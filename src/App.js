@@ -11,6 +11,7 @@ import {
 import Topbar from './components/Topbar';
 import HomePage from './components/HomePage';
 import PlayerPage from './components/PlayerPage';
+import MatchPage from './components/player-stats/Match-info/MatchPage';
 
 function HomeRoute() {
   const openPlayer = useOutletContext();
@@ -22,6 +23,17 @@ function PlayerRoute() {
   const { accountId } = useParams();
 
   return accountId ? <PlayerPage accountId={accountId} /> : null;
+}
+
+function MatchRoute() {
+  const { accountId, matchId } = useParams();
+  const parsedMatchId = Number(matchId);
+
+  if (!accountId || !matchId || !Number.isSafeInteger(parsedMatchId) || parsedMatchId < 0) {
+    return null;
+  }
+
+  return <MatchPage accountId={accountId} matchId={parsedMatchId} />;
 }
 
 function AppLayout() {
@@ -52,6 +64,7 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<HomeRoute />} />
+          <Route path="player/:accountId/match/:matchId" element={<MatchRoute />} />
           <Route path="player/:accountId" element={<PlayerRoute />} />
           <Route path="*" element={<HomeRoute />} />
         </Route>

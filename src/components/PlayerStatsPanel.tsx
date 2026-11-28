@@ -23,7 +23,7 @@ function PlayerStatsPanel({ accountId }: PlayerStatsPanelProps) {
   return (
     <div className="player-stats">
       <PlayerRank rank={data.rank} rankAssets={data.rankAssets} />
-      <MatchHistory matches={data.matches} heroesById={heroesById} />
+      <MatchHistory accountId={accountId} matches={data.matches} heroesById={heroesById} />
       <TopHeroes heroes={data.heroes} heroesById={heroesById} />
       <PlayerRelations
         mates={data.mates}

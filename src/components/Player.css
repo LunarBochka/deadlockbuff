@@ -1,6 +1,6 @@
 .player-tool {
-  width: min(100%, 900px);
-  padding: 24px;
+  width: min(100%, 1080px);
+  padding: 26px;
   border: 1px solid var(--line);
   border-radius: 5px;
   background: rgba(27, 23, 38, .96);
@@ -358,7 +358,7 @@
 
 .match-row {
   display: grid;
-  grid-template-columns: 38px minmax(120px, 1fr) 92px 74px 86px;
+  grid-template-columns: 38px minmax(120px, 1fr) 92px 74px 86px auto;
   align-items: center;
   gap: 10px;
   min-height: 48px;
@@ -396,6 +396,7 @@
 
 .match-hero strong,
 .match-hero span,
+.match-hero time,
 .hero-stat strong,
 .hero-stat span,
 .relation-row strong,
@@ -407,6 +408,7 @@
 }
 
 .match-hero span,
+.match-hero time,
 .hero-stat span,
 .relation-row span {
   margin-top: 3px;
@@ -430,6 +432,25 @@
   text-align: center;
   font-size: 10px;
   font-weight: 700;
+}
+
+.match-details-toggle {
+  min-height: 32px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #30283e;
+  color: var(--accent-strong);
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.match-details-toggle:hover,
+.match-details-toggle:focus-visible {
+  border-color: var(--accent);
+  outline: none;
 }
 
 .hero-grid {
@@ -516,7 +537,7 @@
   }
 
   .match-row {
-    grid-template-columns: 38px minmax(90px, 1fr) 74px 70px;
+    grid-template-columns: 38px minmax(90px, 1fr) 74px 70px auto;
   }
 
   .match-networth {

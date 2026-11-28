@@ -7,3 +7,4 @@ npm install
 npm install -g typescript
 npm install --save-dev typescript @types/node @types/react @types/react-dom @types/jest
 npm install react-router-dom
+npm install recharts

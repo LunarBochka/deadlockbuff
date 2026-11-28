@@ -10,6 +10,7 @@ body {
   background: #100d18;
   color: #f2edf7;
   font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

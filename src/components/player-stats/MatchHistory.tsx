@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import type { HeroAsset, MatchHistoryEntry } from '../PlayerStats';
-import { formatDuration, formatNetWorth } from './formatters';
+import { formatDuration, formatMatchDate, formatNetWorth } from './formatters';
 import HeroIcon from './HeroIcon';
 
 type MatchHistoryProps = {
+  accountId: string;
   matches: MatchHistoryEntry[];
   heroesById: ReadonlyMap<number, HeroAsset>;
 };
@@ -16,9 +18,11 @@ function getOutcome(outcome: number) {
 function MatchRow({
   match,
   hero,
+  onOpen,
 }: {
   match: MatchHistoryEntry;
   hero?: HeroAsset;
+  onOpen: () => void;
 }) {
   const outcome = getOutcome(match.player_match_outcome);
 
@@ -28,6 +32,7 @@ function MatchRow({
       <div className="match-hero">
         <strong>{hero?.name || `Герой ${match.hero_id}`}</strong>
         <span>{formatDuration(match.match_duration_s)}</span>
+        <time>{formatMatchDate(match.start_time)}</time>
       </div>
       <strong className="match-kda">
         {match.player_kills}/{match.player_deaths}/{match.player_assists}
@@ -36,11 +41,20 @@ function MatchRow({
       <span className={`match-result ${outcome.className}`}>
         {outcome.label}
       </span>
+      <button
+        className="match-details-toggle"
+        type="button"
+        onClick={onOpen}
+      >
+        Подробнее
+      </button>
     </div>
   );
 }
 
-function MatchHistory({ matches, heroesById }: MatchHistoryProps) {
+function MatchHistory({ accountId, matches, heroesById }: MatchHistoryProps) {
+  const navigate = useNavigate();
+
   return (
     <section className="player-stat-section" aria-label="Форма за последние матчи">
       <div className="player-section-heading">
@@ -75,6 +89,9 @@ function MatchHistory({ matches, heroesById }: MatchHistoryProps) {
                 key={match.match_id}
                 match={match}
                 hero={heroesById.get(match.hero_id)}
+                onOpen={() => navigate(
+                  `/player/${encodeURIComponent(accountId)}/match/${match.match_id}`,
+                )}
               />
             ))}
           </div>

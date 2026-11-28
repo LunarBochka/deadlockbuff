@@ -1,10 +1,10 @@
 .topbar {
   display: flex;
-  min-height: 108px;
+  min-height: 118px;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  padding: 0 63px;
+  padding: 0 68px;
   border-bottom: 1px solid rgba(183, 154, 223, .16);
   background: rgba(16, 13, 24, .88);
   backdrop-filter: blur(14px);
@@ -12,9 +12,9 @@
 
 .topbar-home-logo {
   display: grid;
-  width: 57px;
-  height: 57px;
-  flex: 0 0 57px;
+  width: 66px;
+  height: 66px;
+  flex: 0 0 66px;
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -83,7 +83,7 @@
 
 .player-search {
   display: flex;
-  width: min(405px, 51vw);
+  width: min(450px, 51vw);
   align-items: center;
   gap: 15px;
   padding: 0 16px;
